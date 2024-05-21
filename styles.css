@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b7b7b7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 100px); /* 4 yerine 5 sütun yapıldı */
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: start; /* Kartları sola yasla */
+    display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 20px auto;
+        justify-content: center;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px; /* Font boyutunu biraz küçülttüm */
+    color: #fff;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s; 
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px; /* İçerik için biraz padding ekledim */
+    box-sizing: border-box; /* Padding eklenince boyutlar düzgün olsun diye */
+}
+
+.card-front {
+    background-color: #007bff;
+    color: white;
+}
+
+.card-back {
+    background-color: #fff;
+    color: #250000;
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    background-color: green !important;
+    color: white;
+}
+
+.card.unmatched {
+    background-color: red !important;
+    color: white;
+}
+
+.start-btn {
+    padding: 10px 20px;
+}
+
+.score {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.score-value {
+    font-weight: bold;
+}
+
+.level {
+    margin-top: 40px;
+}
+
+.level .row {
+    margin-bottom: 40px; /* Çift seviyeler arasında mesafe */
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#levels{
+    background-color: #d3d3d3;
+}
+
